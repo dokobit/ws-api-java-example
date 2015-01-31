@@ -1,5 +1,10 @@
 *.class
-
+test_signed.pdf
+library/
+.settings/
+.classpath
+.project
+.DS_Store
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
 
