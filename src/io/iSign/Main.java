@@ -91,20 +91,20 @@ public class Main {
 		   byte[] fileData = loadFile("test.pdf");
 
 	        List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
-	        nameValuePairs.add(new BasicNameValuePair("type","pdf"));
-	        nameValuePairs.add(new BasicNameValuePair("phone","+37060000007"));
-	        nameValuePairs.add(new BasicNameValuePair("code","51001091072"));
-	        nameValuePairs.add(new BasicNameValuePair("language","EN"));
-	        nameValuePairs.add(new BasicNameValuePair("pdf[contact]","Seventh Testnumber"));
-	        nameValuePairs.add(new BasicNameValuePair("pdf[reason]","Agreement"));
-	        nameValuePairs.add(new BasicNameValuePair("pdf[location]","Vilnius"));
-	        nameValuePairs.add(new BasicNameValuePair("pdf[files][0][name]","test.pdf"));
-	        nameValuePairs.add(new BasicNameValuePair("pdf[files][0][content]",new String(DatatypeConverter.printBase64Binary(fileData))));
-	        nameValuePairs.add(new BasicNameValuePair("pdf[files][0][digest]",toSHA1(fileData)));
+	        nameValuePairs.add(new BasicNameValuePair("type", "pdf"));
+	        nameValuePairs.add(new BasicNameValuePair("phone", "+37060000007"));
+	        nameValuePairs.add(new BasicNameValuePair("code", "51001091072"));
+	        nameValuePairs.add(new BasicNameValuePair("language", "EN"));
+	        nameValuePairs.add(new BasicNameValuePair("pdf[contact]", "Seventh Testnumber"));
+	        nameValuePairs.add(new BasicNameValuePair("pdf[reason]", "Agreement"));
+	        nameValuePairs.add(new BasicNameValuePair("pdf[location]", "Vilnius"));
+	        nameValuePairs.add(new BasicNameValuePair("pdf[files][0][name]", "test.pdf"));
+	        nameValuePairs.add(new BasicNameValuePair("pdf[files][0][content]", new String(DatatypeConverter.printBase64Binary(fileData))));
+	        nameValuePairs.add(new BasicNameValuePair("pdf[files][0][digest]", toSHA1(fileData)));
 
 	        HttpClient client = HttpClientBuilder.create().build();
 	        HttpPost method = new HttpPost(host + "mobile/sign.json?access_token=" + apiToken);
-	        method.setEntity(new UrlEncodedFormEntity(nameValuePairs));   
+	        method.setEntity(new UrlEncodedFormEntity(nameValuePairs, "UTF-8"));   
 	     
 	        method.addHeader("content-type", "application/x-www-form-urlencoded");
 	        HttpResponse response = client.execute(method);
