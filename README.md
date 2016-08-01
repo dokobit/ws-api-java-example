@@ -1,4 +1,4 @@
-# iSign.io API Java example
+# ISIGN.io API Java example
 ------
 Request access token [here](https://www.isign.io/contacts#request-access).
 
