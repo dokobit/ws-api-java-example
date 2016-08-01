@@ -42,7 +42,7 @@ public class Main {
 	        JsonObject prepareJson = jsonReader.readObject();
 	        
 	        
-	        System.out.println("Phone will receive control code: "+prepareJson.getString("controlCode"));
+	        System.out.println("Phone will receive control code: "+prepareJson.getString("control_code"));
 	        System.out.println("Prepare responded with token: "+prepareJson.getString("token"));
 	        
 	        if((prepareJson.getString("status")).equals("ok")) {
