@@ -1,3 +1,4 @@
+# IDE settings
 *.class
 test_signed.pdf
 library/
@@ -5,8 +6,12 @@ library/
 .classpath
 .project
 .DS_Store
+
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
+
+# output files
+target/
 
 # Package Files #
 *.jar

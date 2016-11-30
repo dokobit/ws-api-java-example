@@ -35,58 +35,55 @@ public class Main {
 	        String host = "https://developers.isign.io/";
 
 	        System.out.println("iSign.io API Java example ");
-	        
+
 	        HttpResponse prepareResponse = prepare(host, apiToken);
-	        
+
 	        JsonReader jsonReader = Json.createReader(new StringReader(EntityUtils.toString(prepareResponse.getEntity(),  "UTF-8")));
 	        JsonObject prepareJson = jsonReader.readObject();
-	        
-	        
-	        System.out.println("Phone will receive control code: "+prepareJson.getString("control_code"));
-	        System.out.println("Prepare responded with token: "+prepareJson.getString("token"));
-	        
+
 	        if((prepareJson.getString("status")).equals("ok")) {
-	        	 status(host, apiToken, prepareJson.getString("token"));
+		        System.out.println("Phone will receive control code: "+prepareJson.getString("control_code"));
+		        System.out.println("Prepare responded with token: "+prepareJson.getString("token"));
+		        status(host, apiToken, prepareJson.getString("token"));
 	        } else {
 	        	System.out.println("Responded with error:" + prepareJson.getString("message") );
 	        }
 	    }
 
 	   public static void status(String host, String apiToken, String token) throws Exception {
-		  
+
 		   System.out.println("Requesting signed file status:");
 	       HttpClient client = HttpClientBuilder.create().build();
 		   HttpGet statusMethod = new HttpGet(host + "/mobile/sign/status/"+token+".json?access_token="+apiToken);
-    
+
 	       	for (int i=0; i<60; i = i+5) {
 		        HttpResponse statusResponse = client.execute(statusMethod);
 				HttpEntity entity = statusResponse.getEntity();
 				String statusString = EntityUtils.toString(entity,  "UTF-8");
 		        JsonReader jsonReader = Json.createReader(new StringReader(statusString));
 		        JsonObject statusJson = jsonReader.readObject();
-	
+
 		        System.out.println(statusJson.getString("status"));
 		        if ((statusJson.getString("status")).equals("ok")) {
 		        	JsonObject file = statusJson.getJsonObject("file");
 		        	try {
 		        		FileUtils.writeByteArrayToFile(new File("test_signed.pdf"), DatatypeConverter.parseBase64Binary(file.getString("content")));
-		        		
 		        	} catch (IOException ex) {
 		        		System.out.println(ex.toString());
 		        	}
 		        	System.out.println("Signed. Please open ./test_signed.pdf !\n");
 			        break;
-		        } else if ((statusJson.getString("status")).equals("error")) {
+		        } else if (statusJson.getString("status").equals("error")) {
 		        	System.out.println("Singing failed with message: "+statusJson.getString("message"));
 		        }
 		        try {
 	        	  Thread.sleep(5000);
 	        	} catch (InterruptedException ie) {
 	        	    //Handle exception
-		        	}
+	        	}
 	       	}
 	   }
-	   
+
 	   public static HttpResponse prepare(String host, String apiToken) throws Exception {
 		   byte[] fileData = loadFile("test.pdf");
 
@@ -104,11 +101,11 @@ public class Main {
 
 	        HttpClient client = HttpClientBuilder.create().build();
 	        HttpPost method = new HttpPost(host + "mobile/sign.json?access_token=" + apiToken);
-	        method.setEntity(new UrlEncodedFormEntity(nameValuePairs, "UTF-8"));   
-	     
+	        method.setEntity(new UrlEncodedFormEntity(nameValuePairs, "UTF-8"));
+
 	        method.addHeader("content-type", "application/x-www-form-urlencoded");
 	        HttpResponse response = client.execute(method);
-	        
+
 	        return response;
 	   }
 
@@ -127,6 +124,6 @@ public class Main {
 
 	    private static byte[] loadFile(String name) throws IOException {
 	        InputStream in = new FileInputStream(name);
-	        return IOUtils.toByteArray(in);
-	    }
+			return IOUtils.toByteArray( in );
+		}
 }
