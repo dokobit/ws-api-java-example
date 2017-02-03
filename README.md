@@ -9,5 +9,5 @@ Enter phone number and personal code if required at line 95-96, or leave with te
 To execute, run:
 
 ```shell
-mvn exec:java
+mvn clean compile exec:java
 ```
