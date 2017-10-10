@@ -1,6 +1,6 @@
 # ISIGN.io API Java example
 ------
-Request access token [here](https://www.isign.io/services/contacts#request-access).
+Request access token [here](https://www.isign.io/services/token-request).
 
 Enter API Access token at Main:34 line.
 
