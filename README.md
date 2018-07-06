@@ -1,9 +1,9 @@
-# ISIGN.io API Java example
+# Dokobit WS API Java example
 ------
 
-Check more documentation at https://developers.isign.io
+Check more documentation at https://developers.dokobit.com
 
-Request access token [here](https://www.isign.io/services/token-request).
+Request access token [here](https://www.dokobit.com/developers/request-token).
 
 Enter API Access token at Main:34 line.
 
