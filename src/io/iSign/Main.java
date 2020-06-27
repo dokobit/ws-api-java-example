@@ -32,7 +32,7 @@ public class Main {
 
 	   public static void main(String[] args) throws Exception {
 	        String apiToken = ""; // Enter access token here
-	        String host = "https://developers.isign.io/";
+	        String host = "https://developers.dokobit.com/";
 
 	        System.out.println("iSign.io API Java example ");
 	        
