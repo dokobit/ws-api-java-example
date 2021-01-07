@@ -1,20 +1,20 @@
-# Dokobit WS API Java example
+Dokobit WS API Java example
 ------
 
 Check more documentation at https://developers.dokobit.com
 
 Request access token [here](https://www.dokobit.com/developers/request-token).
 
-Enter API Access token at Main:34 line.
+Enter API Access token by evaluation `API_TOKEN` constant
 
-Enter phone number and personal code if required at line 95-96, or leave with testing details. 
+Enter phone number or/and personal code if required, or leave with testing details available [here](https://www.dokobit.com/developers/testing). 
 
 Build & Run!
 ------
-Sample requires additional libraries:
+`mvn install`
 
-* javax.json and javax.json-api;
-* org.apache.commons.io;
-* org.apache.commons.logging;
-* org.apache.httpclient;
-* org.apache.httpcore;
+`mvn package`
+
+`mvn -X exec:java -Dexec.mainClass="com.dokobit.mid.Main"`
+
+`mvn -X exec:java -Dexec.mainClass="com.dokobit.smartid.Main"`
