@@ -34,7 +34,12 @@ public class Main {
     public static final String HOST = "https://developers.dokobit.com/";
 
     public static void main(String[] args) throws Exception {
-        log.info("iSign.io API Java example ");
+        log.info("Developers.dokobit.com WS API Smart-ID Java example ");
+
+        if (API_TOKEN.equals("")) {
+            log.info("Please set API_TOKEN at Main:33" );
+            System.exit(1);
+        }
 
         HttpResponse prepareResponse = prepare(HOST, API_TOKEN);
 
@@ -93,7 +98,6 @@ public class Main {
         nameValuePairs.add(new BasicNameValuePair("type", "pdf"));
         nameValuePairs.add(new BasicNameValuePair("code", "10101010005"));
         nameValuePairs.add(new BasicNameValuePair("country", "EE"));
-        nameValuePairs.add(new BasicNameValuePair("language", "ET"));
         nameValuePairs.add(new BasicNameValuePair("pdf[contact]", "Seventh Testnumber"));
         nameValuePairs.add(new BasicNameValuePair("pdf[reason]", "Agreement"));
         nameValuePairs.add(new BasicNameValuePair("pdf[location]", "Tallinn"));

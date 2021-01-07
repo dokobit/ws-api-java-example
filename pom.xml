@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.dokobit</groupId>
-    <artifactId>dockemnts-api-example</artifactId>
+    <artifactId>ws-api</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <name>dokobit</name>
@@ -76,6 +76,11 @@
             <groupId>log4j</groupId>
             <artifactId>log4j</artifactId>
             <version>${log4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.xml.bind</groupId>
+            <artifactId>jaxb-api</artifactId>
+            <version>2.2.11</version>
         </dependency>
     </dependencies>
 

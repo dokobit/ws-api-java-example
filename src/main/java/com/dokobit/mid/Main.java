@@ -34,7 +34,12 @@ public class Main {
     public static final String HOST = "https://developers.dokobit.com/";
 
     public static void main(String[] args) throws Exception {
-        log.info("iSign.io API Java example ");
+        log.info("Developers.dokobit.com WS API Mobile ID Java example ");
+
+        if (API_TOKEN.equals("")) {
+            log.info("Please set API_TOKEN at Main:33" );
+            System.exit(1);
+        }
 
         HttpResponse prepareResponse = prepare(HOST, API_TOKEN);
 
@@ -92,8 +97,8 @@ public class Main {
 
         List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
         nameValuePairs.add(new BasicNameValuePair("type", "pdf"));
-        nameValuePairs.add(new BasicNameValuePair("phone", "+37060000007"));
-        nameValuePairs.add(new BasicNameValuePair("code", "51001091072"));
+        nameValuePairs.add(new BasicNameValuePair("phone", "+37200000766"));
+        nameValuePairs.add(new BasicNameValuePair("code", "60001019906"));
         nameValuePairs.add(new BasicNameValuePair("language", "ET"));
         nameValuePairs.add(new BasicNameValuePair("country", "EE"));
         nameValuePairs.add(new BasicNameValuePair("pdf[contact]", "Seventh Testnumber"));
