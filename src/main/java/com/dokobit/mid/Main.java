@@ -106,7 +106,7 @@ public class Main {
         nameValuePairs.add(new BasicNameValuePair("pdf[location]", "Tallinn"));
         nameValuePairs.add(new BasicNameValuePair("pdf[files][0][name]", "test.pdf"));
         nameValuePairs.add(new BasicNameValuePair("pdf[files][0][content]", DatatypeConverter.printBase64Binary(fileData)));
-        nameValuePairs.add(new BasicNameValuePair("pdf[files][0][digest]", Util.toSHA1(fileData)));
+        nameValuePairs.add(new BasicNameValuePair("pdf[files][0][digest]", Util.toSHA256(fileData)));
 
         HttpClient client = HttpClientBuilder.create().build();
         HttpPost method = new HttpPost(host + "mobile/sign.json?access_token=" + apiToken);
