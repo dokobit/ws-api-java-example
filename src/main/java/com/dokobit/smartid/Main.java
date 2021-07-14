@@ -96,14 +96,14 @@ public class Main {
 
         List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
         nameValuePairs.add(new BasicNameValuePair("type", "pdf"));
-        nameValuePairs.add(new BasicNameValuePair("code", "10101010005"));
+        nameValuePairs.add(new BasicNameValuePair("code", "30303039914"));
         nameValuePairs.add(new BasicNameValuePair("country", "EE"));
         nameValuePairs.add(new BasicNameValuePair("pdf[contact]", "Seventh Testnumber"));
         nameValuePairs.add(new BasicNameValuePair("pdf[reason]", "Agreement"));
         nameValuePairs.add(new BasicNameValuePair("pdf[location]", "Tallinn"));
         nameValuePairs.add(new BasicNameValuePair("pdf[files][0][name]", "test.pdf"));
         nameValuePairs.add(new BasicNameValuePair("pdf[files][0][content]", DatatypeConverter.printBase64Binary(fileData)));
-        nameValuePairs.add(new BasicNameValuePair("pdf[files][0][digest]", Util.toSHA1(fileData)));
+        nameValuePairs.add(new BasicNameValuePair("pdf[files][0][digest]", Util.toSHA256(fileData)));
 
         HttpClient client = HttpClientBuilder.create().build();
         HttpPost method = new HttpPost(host + "smartid/sign.json?access_token=" + apiToken);
