@@ -20,8 +20,8 @@ public class Util {
         return result.toString();
     }
 
-    public static String toSHA1(byte[] convertme) throws NoSuchAlgorithmException {
-        MessageDigest md = MessageDigest.getInstance("SHA-1");
+    public static String toSHA256(byte[] convertme) throws NoSuchAlgorithmException {
+        MessageDigest md = MessageDigest.getInstance("SHA-256");
         return byteArrayToHexString(md.digest(convertme));
     }
 
