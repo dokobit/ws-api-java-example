@@ -7,7 +7,7 @@ Request access token [here](https://www.dokobit.com/developers/request-token).
 
 Enter API Access token by evaluation `API_TOKEN` constant
 
-Enter phone number or/and personal code if required, or leave with testing details available [here](https://www.dokobit.com/developers/testing). 
+Enter phone number or/and personal code if required, or leave with testing details available [here](https://dokobitbysignicat.zendesk.com/hc/en-us/articles/20067528968476-Mobile-ID-and-Smart-ID-test-data). 
 
 Build & Run!
 ------
